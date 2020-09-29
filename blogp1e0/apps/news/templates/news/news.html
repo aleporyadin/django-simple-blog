@@ -1,0 +1,87 @@
+{% extends "blog/base.html" %}
+
+{% block slider %}
+
+<section class="hero-wrap hero-wrap-2 js-fullheight" style="background-image: url('images/bg_1.jpg');"
+  data-stellar-background-ratio="0.5">
+  <div class="overlay"></div>
+  <div class="container">
+    <div class="row no-gutters slider-text js-fullheight align-items-end justify-content-center">
+      <div class="col-md-9 ftco-animate pb-5 text-center">
+        <h1 class="mb-3 bread">News</h1>
+        <p class="breadcrumbs"><span class="mr-2"><a href="{% url 'blog-home' %}">Home <i
+                class="ion-ios-arrow-forward"></i></a></span> <span>news <i class="ion-ios-arrow-forward"></i></span>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endblock %}
+
+{% block content %}
+
+{% for tit, descr, img,  sourc_n in news_data_list %}
+<div class="container ">
+  <div class="row ">
+    <div class="col-md-12 ">
+      <div class="case " id="case1">
+        <div class="row">
+
+          <div class="col-md-6 col-lg-6 col-xl-8 d-flex">
+            <a href="{% url 'news-detail' %}" class="img " style="background-image: url('{{ img }}');"></a>
+          </div>
+
+          <div class="col-md-6 col-lg-6 col-xl-4 d-flex">
+            <div class="text mt-2 mr-2">
+
+              <h2><a href="{{ sourc_n }}">{{ tit }}</a></h2>
+              <p>{{ value|linebreaks }} </p>
+              {{ descr }} <a href="{{ sourc_n }}" class="btn btn-warning add-comment-buttonА ">Read more</a>
+              {{ value|linebreaks }}
+            </div>
+          </div>
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- <article class="media content-section">
+  <div class="media-body">
+    <h2> </h2>
+  
+        
+     
+  </div>
+</article> -->
+{% endfor %}
+
+{% endblock content %}
+
+{% block paginate %}
+
+{% if news_list.has_other_pages %}
+<ul class="pagination">
+  {% if news_list.has_previous %}
+  <li><a href="?page={{ news_list.previous_page_number }}">&laquo;</a></li>
+  {% else %}
+  <li class="disabled"><span>&laquo;</span></li>
+  {% endif %}
+  {% for i in news_list.paginator.page_range %}
+  {% if news_list.number == i %}
+  <li class="active"><span>{{ i }} <span class="sr-only">(current)</span></span></li>
+  {% else %}
+  <li><a href="?page={{ i }}">{{ i }}</a></li>
+  {% endif %}
+  {% endfor %}
+  {% if news_list.has_next %}
+  <li><a href="?page={{ news_list.next_page_number }}">&raquo;</a></li>
+  {% else %}
+  <li class="disabled"><span>&raquo;</span></li>
+  {% endif %}
+</ul>
+{% endif %}
+
+{% endblock %}

@@ -1,0 +1,38 @@
+{% extends "blog/base.html" %}
+
+{% block slider %}
+<section class="hero-wrap hero-wrap-2 js-fullheight" style="background-image: url('images/bg_1.jpg');"
+  data-stellar-background-ratio="0.5">
+  <div class="overlay"></div>
+  <div class="container">
+    <div class="row no-gutters slider-text js-fullheight align-items-end justify-content-center">
+      <div class="col-md-9 ftco-animate pb-5 text-center">
+        <h1 class="mb-3 bread">DELETE POST </h1>
+        <p class="breadcrumbs"><span class="mr-2"><a href="{% url 'blog-home' %}">Home <i
+                class="ion-ios-arrow-forward"></i></a></span> <span>Delete post <i class="ion-ios-arrow-forward"></i></span>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endblock %}
+{% block content %}
+<div class="row d-flex justify-content-center ">
+  <div class="col-md-5 ">
+    <div class="content-section">
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <fieldset class="form-group">
+                <legend class="border-bottom mb-4">Delete Post</legend>
+                <h2>Are you sure you want to delete the post "{{ object.title }}"?</h2>
+            </fieldset>
+            <div class="form-group">
+                <button class="btn btn-warning add-comment-buttonА btn-lg " type="submit">Yes, Delete</button>
+                <a class="btn btn-primary add-comment-buttonА btn-lg" href="{% url 'post-detail' object.id %}">Cancel</a>
+            </div>
+        </form>
+    </div>
+    </div>
+    </div>
+{% endblock content %}

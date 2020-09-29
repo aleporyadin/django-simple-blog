@@ -1,0 +1,111 @@
+{% extends "blog/base.html" %}
+
+{% block slider %}
+
+<section class="hero-wrap hero-wrap-2 js-fullheight">
+  data-stellar-background-ratio="0.5">
+  <div class="overlay"></div>
+  <div class="container">
+    <div class="row no-gutters slider-text js-fullheight align-items-end justify-content-center">
+      <div class="col-md-9 ftco-animate pb-5 text-center">
+        <h1 class="mb-3 bread">Posts by 
+    
+     
+          <!-- <img class="img-user mr-4" src="{{ .image.url }}"> -->
+       
+ 
+        </h1>
+          
+        <h2>{{ view.kwargs.username }}</h2>
+          <h2>
+          
+          {% if page_obj.paginator.count == 0 %}
+          Not Found
+          {% elif page_obj.paginator.count == 1%}
+          {{ page_obj.paginator.count }} post
+          {% else%}
+          {{ page_obj.paginator.count }} posts
+          {% endif %}
+          </h2>
+        
+        <p class="breadcrumbs"><span class="mr-2"><a href="{% url 'blog-home' %}">Home <i class="ion-ios-arrow-forward"></i></a></span> <span>Posts by <i class="ion-ios-arrow-forward"></i></span>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endblock %}
+
+{% block content %}
+
+<div class="container">
+  <div class="row d-flex">
+    {% for post in posts %}
+    <div class="col-md-4 d-flex ftco-animate">
+      <div class="blog-entry justify-content-end">
+        <div class="text p-4 float-right d-block">
+          
+
+          <h3 class="heading mb-3">
+            <img class="mr-4" style="border-radius: 50%;"width="64px" height="64px" src="{{ post.author.profile.image.url }}">
+            <a href="{% url 'user-posts' post.author.username %}">{{ post.author }}</a>
+          </h3>
+          {% if post.tags.all == 0 %}
+          <!-- empty -->
+          {% else %}
+          {% for tag in post.tags.all %}
+          <a href="{% url 'tagged' tag.slug %}" class="mr-1 mb-2 badge badge-dark">#{{ tag.name }}</a>
+          {% endfor %}
+          {% endif %}
+          <h4>
+            <a href="{% url 'post-detail' post.id %}" class="article-title"style="text-decoration:underline">
+              {{ post.title }}
+            </a>
+          </h4>
+          <!-- fotka -->
+          <a href="{% url 'post-detail' post.id %}" class="block-20 mt-2 " style="background-repeat: no-repeat;background-image: url('{{ post.image.url }}');"></a>
+
+          <p>
+            <a href="{% url 'post-detail' post.id %}" class="btn-custom">
+              <span class="ion-ios-arrow-round-forward mr-3"></span>
+              Read more
+            </a>
+          </p>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+
+  </div>
+</div>
+
+
+
+
+
+
+
+{% if is_paginated %}
+
+{% if page_obj.has_previous %}
+<a class="btn btn-outline-info mb-4" href="?page=1">First</a>
+<a class="btn btn-outline-info mb-4" href="?page={{ page_obj.previous_page_number }}">Previous</a>
+{% endif %}
+
+{% for num in page_obj.paginator.page_range %}
+{% if page_obj.number == num %}
+<a class="btn btn-info mb-4" href="?page={{ num }}">{{ num }}</a>
+{% elif num > page_obj.number|add:'-3' and num < page_obj.number|add:'3' %}
+<a class="btn btn-outline-info mb-4" href="?page={{ num }}">{{ num }}</a>
+{% endif %}
+{% endfor %}
+
+{% if page_obj.has_next %}
+<a class="btn btn-outline-info mb-4" href="?page={{ page_obj.next_page_number }}">Next</a>
+<a class="btn btn-outline-info mb-4" href="?page={{ page_obj.paginator.num_pages }}">Last</a>
+{% endif %}
+
+{% endif %}
+
+{% endblock content %}

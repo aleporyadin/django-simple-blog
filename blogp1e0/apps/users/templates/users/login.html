@@ -1,0 +1,87 @@
+{% extends "blog/base.html" %}
+{% load crispy_forms_tags %}
+
+{% block slider %}
+<section class="hero-wrap hero-wrap-2 js-fullheight" style="background-image: url('images/bg_1.jpg');"
+    data-stellar-background-ratio="0.5">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row no-gutters slider-text js-fullheight align-items-end justify-content-center">
+            <div class="col-md-9 ftco-animate pb-5 text-center">
+                <h1 class="mb-3 bread">Login</h1>
+
+
+                <p class="breadcrumbs"><span class="mr-2"><a href="{% url 'blog-home' %}">Home
+                            <i class="ion-ios-arrow-forward"></i></a></span> <span>Login <i
+                            class="ion-ios-arrow-forward"></i></span>
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}
+{% block content %}
+
+    <div class="row d-flex justify-content-center ">
+        <div class="col-md-5 ">
+            <form method="POST">
+                {% csrf_token %}
+                
+                <fieldset class="form-group">
+                    <h2>
+                        <legend class="border-bottom mb-4 pb-1">Log In</legend>
+                    </h2>
+                    {{ form|crispy }}
+                </fieldset>
+                <button class="btn btn-warning add-comment-buttonА btn-lg btn-block" type="submit">Login</button>
+
+                <div class="form-group mt-2">
+ 
+                    
+                        <a href="{% url 'register' %}"><u>Sign Up Now</u></a>
+                    
+                    
+                        <a href="{% url 'password_reset' %}" class="float-right"><u>Forgot Password?</u></a>
+                   
+                    
+                    
+                </div>
+              
+
+            </form>
+            <!-- <div class="border-top pt-3">
+                
+            </div> -->
+
+            <h2>
+                <legend class="border-bottom mb-4 pb-1">Or login with</legend>
+            </h2>
+
+
+            <a class="btn btn-block btn-social btn-facebook text-white" href="{% url 'social:begin' 'facebook' %}">
+                <span class="fa fa-facebook"> </span> Login with Facebook
+            </a>
+            <a class="btn btn-block btn-social  btn-twitter text-white" href="{% url 'social:begin' 'twitter' %}">
+                <span class="fa fa-twitter"> </span> Login with Twitter
+            </a>
+
+            <a class="btn btn-block btn-social  btn-google text-white" href="{% url 'social:begin' 'google' %}">
+                <span class="fa fa-google"> </span> Login with Google
+            </a>
+            <a class="btn btn-block btn-social  btn-github text-white" href="{% url 'social:begin' 'github' %}">
+                <span class="fa fa-github"> </span> Login with Github
+            </a>
+
+
+        </div>
+    </div>
+
+
+
+
+
+
+
+{% endblock content %}
+

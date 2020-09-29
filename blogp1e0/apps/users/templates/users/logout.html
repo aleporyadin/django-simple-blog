@@ -1,0 +1,42 @@
+{% extends "blog/base.html" %}
+
+
+{% block slider %}
+<section class="hero-wrap hero-wrap-2 js-fullheight" style="background-image: url('images/bg_1.jpg');"
+  data-stellar-background-ratio="0.5">
+  <div class="overlay"></div>
+  <div class="container">
+    <div class="row no-gutters slider-text js-fullheight align-items-end justify-content-center">
+      <div class="col-md-9 ftco-animate pb-5 text-center">
+        <h1 class="mb-3 bread">Bye =(</h1>
+
+
+        <p class="breadcrumbs"><span class="mr-2"><a href="{% url 'blog-home' %}">Home
+              <i class="ion-ios-arrow-forward"></i></a></span> <span>Logout <i
+              class="ion-ios-arrow-forward"></i></span>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endblock %}
+{% block content %}
+<div class="row d-flex justify-content-center ">
+  <div class="col-md-5 ">
+<article class="media content-section">
+    <div class="media-body">
+        <div class="container">
+        <h2 class="text-center">You have been logged out</h2>
+        <div class="border-top pt-3">
+            <small class="text-muted">
+                <a class="btn btn-warning add-comment-buttonА btn-lg btn-block" href="{% url 'login' %}">Log In Again</a>
+            </small>
+        </div>
+    </div>
+    </div>
+</article>
+</div>
+</div>
+
+{% endblock content %}

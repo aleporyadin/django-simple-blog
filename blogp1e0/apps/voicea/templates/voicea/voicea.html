@@ -1,0 +1,59 @@
+{% extends "blog/base.html" %}
+<!-- {% load static %} -->
+
+{% block slider %}
+<section class="hero-wrap hero-wrap-2 js-fullheight" style="background-image: url('images/bg_1.jpg');"
+  data-stellar-background-ratio="0.5">
+  <div class="overlay"></div>
+  <div class="container">
+    <div class="row no-gutters slider-text js-fullheight align-items-end justify-content-center">
+      <div class="col-md-9 ftco-animate pb-5 text-center">
+
+
+
+        <h1 class="mb-3 bread">A<aidcolo style="color: #ffc107;">id</aidcolo></h1>
+        <h2>Voice Assistant</h2>
+        <p class="breadcrumbs"><span class="mr-2"><a href="{% url 'blog-home' %}">Home
+              <i class="ion-ios-arrow-forward"></i></a></span> <span>Aid <i
+              class="ion-ios-arrow-forward"></i></span>
+        </p>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endblock %}
+{% block content %}
+<div class="row d-flex justify-content-center">
+  <div class="col-md-8">
+    <article class="media content-section">
+        <div class="media-body">
+            <p class="text-muted">Press the button and say 'help' to show the voice assistant commands. Press the button
+                again if you asked what you need </p>
+            <form class="form-inline" >
+
+                <h4 class="mr-4">Change language</h4>
+
+                <select class="form-control" id="selectelem">
+                    <option value="en-US">ENG</option>
+                    <option value="ru-RU">RUS</option>
+                </select>
+
+            </form>
+
+
+            <button class="buttonStart btn btn-warning add-comment-buttonА btn-lg">Start listening</button>
+
+            <div class="media-content">
+                <p class="arin-result-p"></p>
+            </div>
+        </div>
+    </article>
+</div>
+</div>
+
+{% endblock %}
+{% block script %}
+<script src="{% static 'blog/js/voicea.js'%}"></script>
+{% endblock %}

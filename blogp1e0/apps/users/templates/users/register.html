@@ -1,0 +1,49 @@
+{% extends "blog/base.html" %}
+{% load crispy_forms_tags %}
+
+
+
+{% block slider %}
+<section class="hero-wrap hero-wrap-2 js-fullheight" style="background-image: url('images/bg_1.jpg');"
+  data-stellar-background-ratio="0.5">
+  <div class="overlay"></div>
+  <div class="container">
+    <div class="row no-gutters slider-text js-fullheight align-items-end justify-content-center">
+      <div class="col-md-9 ftco-animate pb-5 text-center">
+        <h1 class="mb-3 bread">Hello!</h1>
+
+
+        <p class="breadcrumbs"><span class="mr-2"><a href="{% url 'blog-home' %}">Home
+              <i class="ion-ios-arrow-forward"></i></a></span> <span>Register <i
+              class="ion-ios-arrow-forward"></i></span>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endblock %}
+{% block content %}
+<div class="row  d-flex justify-content-center" >
+  <div class="col-md-5 ">
+    <div class="content ">
+      <form method="POST">
+          {% csrf_token %}
+          <fieldset class="form-group">
+             <h2 class="border-bottom mb-4 pb-1 justify-content-center ">Join Today</h2> 
+              {{ form|crispy }}
+          </fieldset>
+          <div class="form-group">
+              <button class="btn btn-warning btn-lg btn-block" type="submit">Sign Up</button>
+          </div>
+      </form>
+      <div class="border-top pt-3">
+          <h6 class="text-muted">
+              Already Have An Account? <a class="ml-2 btn btn-primary " href="{% url 'login' %}">Sign In</a>
+          </h6>
+      </div>
+  </div>
+  </div>
+
+</div>
+{% endblock content %}
