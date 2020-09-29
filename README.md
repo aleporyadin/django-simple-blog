@@ -23,8 +23,8 @@ if you do not want to install them all, then here is a list of applications for 
     rest_framework.authtoken
 ```
 ## IMPORTANT
-** Go to the settings.py file along the path 'blogp1e0/'
-And to register, check mail, secret key and other global variables, you must set your values **
+**Go to the settings.py file along the path 'blogp1e0/'
+And to register, check mail, secret key and other global variables, you must set your values**
 
 ## Do not forget
 ```
