@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'qp6(y1!uc10!+n)unb%fs=b3g#q2u%skwmmvr33&hfedssr^!v'
+SECRET_KEY = 'BRO-YOUR_SECRET_KEY'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -164,8 +164,8 @@ LOGIN_REDIRECT_URL = 'blog-home'
 LOGIN_URL = 'login'
 LOGOUT_URL = 'logout'
 
-# RECAPTCHA_PUBLIC_KEY  =  '6Le3l7AZAAAAAL0IIKH_1eS83nqe9TzO_amN8OD-'
-# RECAPTCHA_PRIVATE_KEY =  '6Le3l7AZAAAAAHbDevZstQbCg968r3GYiVE3XSwW'
+# RECAPTCHA_PUBLIC_KEY  =  'KEY'
+# RECAPTCHA_PRIVATE_KEY =  'KEY'
 
 
 # social auth
@@ -177,24 +177,24 @@ AUTHENTICATION_BACKENDS = (
     'django.contrib.auth.backends.ModelBackend',
 )
 SOCIAL_AUTH_REDIRECT_IS_HTTPS = False
-SOCIAL_AUTH_GITHUB_KEY = 'fda822d3a434a36e4fc1'
-SOCIAL_AUTH_GITHUB_SECRET = '5be6bf6973b69df4edd654453584fc539e2bd283'
+SOCIAL_AUTH_GITHUB_KEY = 'KEY'
+SOCIAL_AUTH_GITHUB_SECRET = 'KEY'
 
-SOCIAL_AUTH_FACEBOOK_KEY = '1267032736974613'
-SOCIAL_AUTH_FACEBOOK_SECRET = '2a87d50ff5bc33f9faa2e988f4685056'
+SOCIAL_AUTH_FACEBOOK_KEY = 'KEY'
+SOCIAL_AUTH_FACEBOOK_SECRET = 'KEY'
 
-SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = ''  # Google Consumer Key
-SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = ''  # Google Consumer Secret
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = 'KEY'  # Google Consumer Key
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = 'KEY'  # Google Consumer Secret
 
-SOCIAL_AUTH_TWITTER_KEY = 'xnKe4EUS6FZjkMoPnlOjdf34G'
-SOCIAL_AUTH_TWITTER_SECRET = 'vNC32nJQLiCQ0EJrviEJRTx0PKjYL3pgNjTbR4f103RibXlEPl'
+SOCIAL_AUTH_TWITTER_KEY = 'KEY'
+SOCIAL_AUTH_TWITTER_SECRET = 'KEY'
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_PORT = 587
+EMAIL_PORT = PORT
 EMAIL_USE_TLS = True
-EMAIL_HOST_USER = 'djangoprblog@gmail.com'
-EMAIL_HOST_PASSWORD = 'MK7fe188'
+EMAIL_HOST_USER = 'gmail'
+EMAIL_HOST_PASSWORD = 'password'
 
 # Multilingualism
 
@@ -205,7 +205,7 @@ LOCALE_PATHS = (
     # os.path.join(PROJECT_DIR, 'locale'),
 )
 
-LANGUAGE_CODE = 'en'  # язык сайта по умолчанию
+LANGUAGE_CODE = 'en'  #language // in develoooop
 
 LANGUAGES = (
     ('en', 'English'),
